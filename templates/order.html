@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Product - Crystal Heaven</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="order-container">
+        <h2>Order Your Product</h2>
+        <div class="product-info">
+            <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p>{{ product.price }}</p>
+        </div>
+        <a href="{{ https://wa.me/919172997568 ?text=Hello,%20I%20would%20like%20to%20order%20this%20product! }}" class="order-btn" target="_blank">Order Now via WhatsApp</a>
+    </div>
+</body>
+</html>

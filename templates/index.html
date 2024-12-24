@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystal Heaven - Shop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+      <!-- Font Awesome CDN (try version 5.15.4) -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <style>
+        /* Temporary CSS for Footer */
+        .footer {
+            background-color: #5e2a84;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: static;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #ffd700; /* Golden color for WhatsApp link */
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer a i {
+            display: inline-block; /* Ensures the icon is treated as a block-level element */
+            font-size: 30px; /* Increase size to 30px */
+            color: #ffd700; /* Ensures the color is golden */
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+
+        .footer a i:hover {
+            transform: scale(1.2);
+            color: #e1306c; /* Instagram's official color */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Welcome to Crystal Heaven</h1>
+        <a href="/admin" style="color: white;">Admin Login</a>
+    </div>
+
+    <div class="product-container">
+        {% for product in products %}
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p>Price: ₹{{ product.price }}</p>
+            <a href="https://wa.me/919172997568?text=Hello,%20I%20would%20like%20to%20order%20the%20product:%20{{ product.name }}!" 
+               class="order-btn" target="_blank">Order Now</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="footer">
+        <p>Crystal Heaven © 2024 (developer - Mr. Ajay Gupta) | For any queries, <a href="https://wa.me/919172997568" target="_blank">Contact Us on WhatsApp</a>
+         <!-- Add Instagram Icon -->
+         <a href="https://www.instagram.com/crystal_heaven12?igsh=MWEwMnd4cXZpdDBzNQ==" 
+         target="_blank" style="margin-left: 10px;">
+          <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </p>
+    </div>
+</body>
+</html>
